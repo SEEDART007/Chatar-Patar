@@ -4,12 +4,14 @@ const cookieParser = require('cookie-parser')
 const app = express();
 
 const authRouter = require('./routes/auth.route');
+const messageRouter = require('./routes/message.route')
 const dbConnect = require('./lib/db');
 
 app.use(express.json())
 app.use(cookieParser())
 
 app.use("/api/auth/",authRouter)
+app.use("/api/message",messageRouter)
 
 
 
