@@ -25,19 +25,22 @@ const App = () => {
   )
  
   return (
-    <div data-theme={theme}>
-    
-     <NavBar/>
+   <div className="min-h-screen flex flex-col" data-theme={theme}>
+  <NavBar />
 
-     <Routes>
-      <Route path='/' element={authUser?<HomePage/>:<Navigate to="/login"/>}/>
-      <Route path='/signup' element={!authUser?<SignUp/>:<Navigate to="/"/>}/>
-      <Route path='/login' element={!authUser?<Login/>:<Navigate to="/"/>}/>
-      <Route path='/settings' element={<SettingsPage/>}/>
-      <Route path='/profile' element={authUser?<ProfilePage/>:<Navigate to="/login"/>}/>
-     </Routes>
-     <Toaster/>
-    </div>
+  <div className="flex-grow">
+    <Routes>
+      <Route path='/' element={authUser ? <HomePage /> : <Navigate to="/login" />} />
+      <Route path='/signup' element={!authUser ? <SignUp /> : <Navigate to="/" />} />
+      <Route path='/login' element={!authUser ? <Login /> : <Navigate to="/" />} />
+      <Route path='/settings' element={<SettingsPage />} />
+      <Route path='/profile' element={authUser ? <ProfilePage /> : <Navigate to="/login" />} />
+    </Routes>
+  </div>
+
+  <Toaster />
+</div>
+
   )
 }
 
