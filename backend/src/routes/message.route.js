@@ -4,10 +4,9 @@ const {getUsersForSidebar,getMessages,sendMessage} = require('../controllers/mes
 
 const router = express.Router()
 
-router.get("/users",protectRoute,getUsersForSidebar)
+router.get("/users", protectRoute, getUsersForSidebar);
+router.get("/:id", protectRoute, getMessages);
 
-router.get("/:id",protectRoute,getMessages)
-
-router.post("/send/:id",protectRoute,sendMessage)
+router.post("/send/:id", protectRoute, sendMessage);
 
 module.exports = router;
